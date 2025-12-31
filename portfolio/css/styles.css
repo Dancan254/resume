@@ -250,14 +250,114 @@ footer {
     text-decoration: underline;
 }
 
-/* Mobile */
-@media (max-width: 600px) {
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    /* Navigation */
+    header {
+        margin-bottom: 3rem;
+        padding: 1.5rem 0;
+    }
+
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav-link {
+        font-size: 0.9rem;
+    }
+
+    /* Hero Section */
+    .hero {
+        flex-direction: column-reverse;
+        /* Text on top, image below is default, but let's see. Actually typically image on top is better for profile? No, usually text first is good for SEO/Intro. Let's stick to text first (column-reverse because DOM is text, image). Wait, DOM is text then image. So column-reverse wouuld be image then text. Let's check DOM.*/
+        /* DOM: 
+           <div class="hero-text">...</div>
+           <div class="hero-image">...</div>
+           
+           Desktop: row. Text left, Image right.
+           Mobile: We want Image top, Text bottom? Or Text top, Image bottom?
+           User said: "Stack the text and image in the Hero section (center text)."
+           
+           Let's go with Image Top for personality, or Text Top for intro. 
+           Actually, the plan said "Change flex-direction to column-reverse (text on top, image below)".
+           If the DOM is Text then Image.
+           flex-direction: column; -> Text on top, Image on bottom.
+           flex-direction: column-reverse; -> Image on top, Text on bottom.
+           
+           Let's do column-reverse so the face is the first thing they see? 
+           Actually, let's look at the plan: "Change flex-direction to column-reverse (text on top, image below)" -- Wait, if DOM is Text then Image, Column Reverse would put Image first.
+           Let's stick to standard flow: Text then Image (flex-direction: column). 
+           Wait, previous CSS for desktop was: 
+           .flex-col-reverse { flex-direction: column-reverse; } 
+           And the HTML has `flex-col-reverse`.
+           So by default (mobile first), it IS column-reverse.
+           
+           HTML: <section class="hero flex items-center gap-8 md:flex-row flex-col-reverse">
+           
+           So by default it HAS `flex-col-reverse`.
+           And `flex-col-reverse` class is defined as `flex-direction: column-reverse`.
+           And the DOM is Text, Image.
+           So `column-reverse` means Image (item 2), Text (item 1).
+           
+           So on Mobile, it is ALREADY Image on Top, Text on Bottom.
+           
+           The user said: "Hero Section (Major Issue): The hero image and the introductory text are currently side-by-side."
+           Wait, if the HTML has `flex-col-reverse`, it should be stacking?
+           
+           Ah, I see `md:flex-row`.
+           
+           Let's check `styles.css` again.
+           
+           Line 151:
+           @media (min-width: 768px) {
+               .flex-col-reverse {
+                   flex-direction: column-reverse;
+               }
+           }
+           
+           Wait, `flex-col-reverse` is INSIDE the min-width query?
+           That means on mobile, `flex-col-reverse` class does NOTHING if it's not defined outside.
+           
+           I need to define `flex-col-reverse` generally or fix the specific hero CSS.
+           
+           Let's simply add the specific Hero overrides here to be safe.
+        */
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .hero-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     h1 {
         font-size: 2rem;
+        margin-bottom: 1rem;
     }
 
     .hero p {
         font-size: 1.1rem;
+        max-width: 100%;
+    }
+
+    .profile-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    /* Events Grid */
+    .events-grid {
+        grid-template-columns: 1fr;
+        /* Full width cards */
     }
 }
 

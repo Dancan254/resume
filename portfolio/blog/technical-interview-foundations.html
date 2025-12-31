@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Interview Foundations | Ian Mongare</title>
+    <meta name="description"
+        content="A complete guide to aceing technical interviews: The 5-stage timeline, evaluation criteria, and how to signal seniority.">
+    <!-- Clean, professional fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Navigation -->
+        <header class="flex justify-between items-center">
+            <div class="logo">
+                <a href="../index.html" style="font-weight: 600; font-size: 1.1rem;">Ian Mongare</a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../blog.html" class="nav-link">Writing</a>
+                <a href="../events.html" class="nav-link">Community</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Post Content -->
+        <article class="post-header">
+            <span class="meta">Phase 0: Module 0.1</span>
+            <h1>Technical Interviews: How They Actually Work</h1>
+            <p class="item-desc" style="font-size: 1.1rem; margin-top: 1rem; color: var(--text-muted);">
+                The 5-stage timeline, the 4 evaluation criteria, and how to send the right signals.
+            </p>
+        </article>
+
+        <section class="post-content">
+            <p>
+                <b>Module Overview:</b> We're going to break down exactly what happens in that 45-60 minute Zoom call.
+                It's not just about getting the right answer; it's about checking specific boxes in the interviewer's
+                mental rubric.
+            </p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>The Interview Flow (45-60 Minutes)</h2>
+            <p>
+                Most technical interviews follow a strict 5-stage structure. Knowing this helps you manage your time and
+                nerves.
+            </p>
+
+            <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                <ol style="margin-bottom: 0; padding-left: 1.2rem;">
+                    <li><strong>Introduction (5 min):</strong> Building rapport. Smile, be professional.</li>
+                    <li><strong>Warm-Up (5-10 min):</strong> Easy problem to check basics (e.g., Reverse a String).</li>
+                    <li><strong>Main Challenge (25-35 min):</strong> The core evaluation. Medium/Hard algorithmic
+                        problem.</li>
+                    <li><strong>Follow-Ups (5-10 min):</strong> Scaling, optimization, and edge cases.</li>
+                    <li><strong>Your Questions (5 min):</strong> Show genuine interest in the team and culture.</li>
+                </ol>
+            </div>
+
+            <h3>Stage 2: The Warm-Up</h3>
+            <p>
+                Think of this like stretching before a workout. The interviewer wants you to succeed.
+                <i>Example: "Reverse a string."</i>
+            </p>
+            <p>
+                <b>Good Response:</b> Ask clarification ("Handle nulls?"), explain approach ("Two pointers"), write
+                clean code, trace it.
+                <br>
+                <b>Bad Response:</b> Silence, O(n²) string concatenation, crashing on null.
+            </p>
+
+            <h3>Stage 3: The Main Challenge</h3>
+            <p>
+                This is the heart of the interview. <i>Example: Two Sum.</i>
+            </p>
+            <blockquote>
+                "Given an array of integers and a target sum, find two numbers in the array that add up to the target.
+                Return their indices."
+            </blockquote>
+
+            <h4>The Optimal Approach (O(n) Time)</h4>
+            <p>
+                Start with Brute Force (O(n²)), but quickly identify the bottleneck. For each number, we are looking for
+                its <i>complement</i> (target - number). A <code>HashMap</code> lets us find that complement in O(1).
+            </p>
+
+            <pre><code class="language-java">public int[] twoSum(int[] nums, int target) {
+    // Handle edge case
+    if (nums == null || nums.length < 2) {
+        return new int[]{};
+    }
+    
+    // Map: number -> index
+    Map&lt;Integer, Integer&gt; map = new HashMap&lt;&gt;();
+    
+    for (int i = 0; i < nums.length; i++) {
+        int complement = target - nums[i];
+        
+        // Check if complement exists
+        if (map.containsKey(complement)) {
+            return new int[]{map.get(complement), i};
+        }
+        
+        // Store current number
+        map.put(nums[i], i);
+    }
+    
+    return new int[]{};
+}</code></pre>
+
+            <p>This demonstrates <b>Optimal Thinking</b>: Trading space (O(n) for the map) for time (O(n) speed).</p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>The 4 Evaluation Criteria</h2>
+            <p>
+                Interviewers are silently scoring you on these four dimensions.
+            </p>
+
+            <h3>1. Problem Decomposition</h3>
+            <p>
+                Can you break complex problems into manageable pieces? Don't try to solve the whole thing at once.
+                Identify the core challenge vs. surface details. Recognize patterns (e.g., "This feels like a Sliding
+                Window").
+            </p>
+
+            <h3>2. Optimal Thinking</h3>
+            <p>
+                Don't settle for the first solution. The progression should be:
+                <br>
+                <code
+                    style="background: #eef; padding: 2px 6px; border-radius: 4px;">Brute Force → Identify Bottleneck → Apply Pattern → Optimal Solution</code>
+            </p>
+            <p>
+                Know your time complexities. If N = 100,000, an O(n²) solution will timeout. You need O(n) or O(n log
+                n).
+            </p>
+
+            <h3>3. Clean Coding</h3>
+            <p>
+                Write code for humans, not just compilers.
+            </p>
+            <ul>
+                <li><b>Meaningful Names:</b> <code>left</code>, <code>right</code> instead of <code>x</code>,
+                    <code>y</code>.</li>
+                <li><b>Edge Cases:</b> Handle nulls and empty inputs immediately.</li>
+                <li><b>Strategic Comments:</b> Explain the WHY, not the WHAT.</li>
+            </ul>
+
+            <h3>4. Communication</h3>
+            <p>
+                The Golden Rule: <b>Think Out Loud.</b> A silent genius often fails interviews because the interviewer
+                can't read their mind. Explain your approach, walk through examples, and state your complexity before
+                you even touch the keyboard.
+            </p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h3>Conclusion</h3>
+            <p>
+                Interviews are a skill separate from daily coding. By understanding the timeline and what interviewers
+                are actually looking for, you can control the signal you send and turn a stressful interrogation into a
+                collaborative conversation.
+            </p>
+
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div style="margin-bottom: 1rem;">
+                &copy; 2025 Ian Dancan Mongare.
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Dancan254"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/ian-dancan"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/your_javaguy"
+                    style="display: inline-flex; align-items: center; justify-content: center;"><img
+                        src="../assets/images/x_logo.png" alt="X"
+                        style="width: 16px; height: 16px; filter: invert(0);"></a>
+                <a href="https://instagram.com/mongzs_"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:dancanian25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
