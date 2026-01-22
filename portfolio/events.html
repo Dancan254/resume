@@ -4,135 +4,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Community | Ian Dancan Mongare</title>
-    <meta name="description"
-        content="Community events, speaking engagements, and workshops hosted by Ian Dancan Mongare.">
-    <!-- Clean, professional fonts -->
+    <title>Community | Ian Mongare</title>
+    <meta name="description" content="Community events, speaking engagements, and workshops hosted by Ian Mongare.">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
-
-    <div class="container">
-        <!-- Navigation -->
-        <header class="flex justify-between items-center">
-            <div class="logo">
-                <a href="index.html" style="font-weight: 600; font-size: 1.1rem;">Ian Mongare</a>
-            </div>
-            <nav class="nav-links">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Ian Mongare</a>
+            <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
+                <a href="resume.html" class="nav-link">Resume</a>
                 <a href="blog.html" class="nav-link">Writing</a>
                 <a href="events.html" class="nav-link active">Community</a>
+                <a href="memories.html" class="nav-link">Memories</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-            </nav>
-        </header>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
 
-        <section class="hero" style="margin-bottom: 3rem;">
-            <h1>Community & Events.</h1>
-            <p>Speaking engagements, workshops, and meetups where I share knowledge on Java, Spring Boot, and scalable
-                systems.</p>
-        </section>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>Community & Events</h1>
+        <p style="color: var(--text-muted); margin-top: 1rem; max-width: 600px; margin-left: auto; margin-right: auto;">Speaking engagements, workshops, and meetups where I share knowledge on Java, Spring Boot, and scalable systems.</p>
+    </header>
 
-        <!-- Events Grid -->
-        <section class="events-grid section">
-            <!-- Event Card 1 (Dashaun Carter) -->
+    <!-- Events Grid -->
+    <main class="section-container" style="padding-top: 3rem; padding-bottom: 5rem;">
+        <div class="events-grid">
+            <!-- Event Card 1 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/javaconnect.png" alt="JavaConnect Spring Boot Bootcamp" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Spring Loaded Bootcamp Kenya</h4>
-                    <p class="event-desc">Hosted Dashaun Carter (Spring Developer Advocate) in Kenya for an intensive
-                        bootcamp on modern Spring Boot production practices.</p>
+                    <p class="event-desc">Hosted Dashaun Carter (Spring Developer Advocate) in Kenya for an intensive bootcamp on modern Spring Boot production practices.</p>
                 </div>
             </div>
 
-            <!-- Event Card 2 (Amigoscode) -->
+            <!-- Event Card 2 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/amigoscode.png" alt="Amigoscode Workshop" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Amigoscode Community Event</h4>
-                    <p class="event-desc">Mentoring developers and discussing the future of backend engineering
-                        education at Amigoscode.</p>
+                    <p class="event-desc">Mentoring developers and discussing the future of backend engineering education at Amigoscode.</p>
                 </div>
             </div>
 
-            <!-- Event Card 3 (Josh Long) -->
+            <!-- Event Card 3 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/joshlong.png" alt="Josh Long Meetup" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Spring Tips with Josh Long</h4>
-                    <p class="event-desc">A deep dive into Reactive Spring and the latest features in the Spring
-                        ecosystem with Josh Long.</p>
+                    <p class="event-desc">A deep dive into Reactive Spring and the latest features in the Spring ecosystem with Josh Long.</p>
                 </div>
             </div>
 
-            <!-- Event Card 4 (NaijaJUG) -->
+            <!-- Event Card 4 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/naijajug.png" alt="NaijaJUG Session" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Naija JUG Speaker Session</h4>
-                    <p class="event-desc">Covered Spring AI concepts and how one could use Spring AI to build
-                        intelligent Java applications using function calls/tools, RAG, and more.</p>
+                    <p class="event-desc">Covered Spring AI concepts and how one could use Spring AI to build intelligent Java applications using function calls/tools, RAG, and more.</p>
                 </div>
             </div>
 
-            <!-- Event Card 5 (Vitale) -->
+            <!-- Event Card 5 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/vitale.png" alt="Community Workshop" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Technical Architecture Workshop</h4>
-                    <p class="event-desc">Workshop session focused on system design patterns for distributed financial
-                        applications.</p>
+                    <p class="event-desc">Workshop session focused on system design patterns for distributed financial applications.</p>
                 </div>
             </div>
 
-            <!-- Event Card 6 (Dashaun) -->
+            <!-- Event Card 6 -->
             <div class="event-card">
                 <div class="event-img-container">
                     <img src="assets/events/Dashaun.png" alt="Dashaun Carter" class="event-img">
                 </div>
                 <div class="event-content">
                     <h4 class="event-title">Spring Office Hours Live</h4>
-                    <p class="event-desc">Live Q&A and coding session demonstrating native image compilation with
-                        GraalVM.</p>
+                    <p class="event-desc">Live Q&A and coding session demonstrating native image compilation with GraalVM.</p>
                 </div>
             </div>
+        </div>
+    </main>
 
-        </section>
-
-        <!-- Footer -->
-        <footer>
-            <div style="margin-bottom: 1rem;">
-                &copy; 2025 Ian Dancan Mongare.
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <p class="footer-text">Let's connect and build something great together.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com/Dancan254" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/in/ian-dancan" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/your_javaguy" target="_blank"><img src="assets/images/x_logo.png" alt="X" class="x-icon"></a>
+                    <a href="https://instagram.com/mongzs_" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:dancanian25@gmail.com"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
-            <div class="footer-socials">
-                <a href="https://github.com/Dancan254"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/ian-dancan"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/your_javaguy"
-                    style="display: inline-flex; align-items: center; justify-content: center;"><img
-                        src="assets/images/x_logo.png" alt="X"
-                        style="width: 16px; height: 16px; filter: invert(0);"></a>
-                <a href="https://instagram.com/mongzs_"><i class="fab fa-instagram"></i></a>
-                <a href="mailto:dancanian25@gmail.com"><i class="fas fa-envelope"></i></a>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Ian Mongare. Built with intention.</p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
 
+    <script src="js/main.js"></script>
 </body>
 
 </html>
