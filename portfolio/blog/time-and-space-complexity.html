@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time & Space Complexity: Predicting Performance | Ian Mongare</title>
+    <meta name="description"
+        content="A deep dive into Big O notation, performance analysis, and common algorithmic patterns for scalable software.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <header class="flex justify-between items-center">
+            <div class="logo">
+                <a href="../index.html" style="font-weight: 600; font-size: 1.1rem;">Ian Mongare</a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../blog.html" class="nav-link">Writing</a>
+                <a href="../events.html" class="nav-link">Community</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Post Content -->
+        <article class="post-header">
+            <span class="meta">DSA Foundations: Module 1.1</span>
+            <h1>Time & Space Complexity: Predicting Performance</h1>
+            <p class="item-desc" style="font-size: 1.1rem; margin-top: 1rem; color: var(--text-muted);">
+                Understanding performance is not about memorizing formulas. It is about predicting how code behaves as
+                input grows.
+            </p>
+        </article>
+
+        <section class="post-content">
+            <img src="../assets/articles/timecomplexity.png" alt="Big O Complexity Chart"
+                style="width: 100%; border-radius: 12px; margin-bottom: 2.5rem; box-shadow: var(--card-shadow);">
+
+            <p>
+                In software engineering, efficiency is not a luxury; it is a requirement. As systems scale, the
+                difference between an efficient algorithm and an inefficient one can mean the difference between a
+                responsive application and a complete system failure. To measure this efficiency, we use Big O Notation.
+            </p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>The Theory: Big O, Omega, and Theta</h2>
+            <p>
+                To formally analyze algorithms, we use asymptotic notation. While most technical interviews focus on Big
+                O, it is important to understand the broader context.
+            </p>
+            <ul>
+                <li><strong>Big O (O):</strong> Represents the <i>upper bound</i>. It describes the worst-case scenario.
+                </li>
+                <li><strong>Big Omega (Ω):</strong> Represents the <i>lower bound</i>. It describes the best-case
+                    scenario.</li>
+                <li><strong>Big Theta (Θ):</strong> Represents the <i>tight bound</i>. It describes the average or exact
+                    rate of growth.</li>
+            </ul>
+            <p>
+                In practice, we design for the worst case (Big O) because it provides a guarantee that the software will
+                never perform worse than a certain limit.
+            </p>
+
+            <h2>Time Complexity Classes</h2>
+            <p>
+                Time complexity measures how the execution time of an algorithm increases relative to the size of the
+                input (n).
+            </p>
+
+            <h3>O(1) — Constant Time</h3>
+            <p>
+                The execution time remains the same regardless of the input size. This is the ultimate goal for
+                optimization.
+                <br><i>Example: Accessing an element in an array by index or a lookup in a HashMap.</i>
+            </p>
+
+            <h3>O(log n) — Logarithmic Time</h3>
+            <p>
+                The execution time grows logarithmically. Typically seen in algorithms that divide the problem in half
+                during each step.
+                <br><i>Example: Binary Search.</i>
+            </p>
+
+            <h3>O(n) — Linear Time</h3>
+            <p>
+                The execution time grows proportionally with the input size.
+                <br><i>Example: A single loop iterating through an array of size n.</i>
+            </p>
+
+            <h3>O(n log n) — Linearithmic Time</h3>
+            <p>
+                Common in efficient sorting algorithms. It involves performing a logarithmic operation n times.
+                <br><i>Example: Merge Sort, Quick Sort.</i>
+            </p>
+
+            <h3>O(n²) — Quadratic Time</h3>
+            <p>
+                The execution time grows with the square of the input size. Often the result of nested loops over the
+                same data set.
+                <br><i>Example: Bubble Sort, checking all pairs in an array.</i>
+            </p>
+
+            <h2>Space Complexity: The Hidden Cost</h2>
+            <p>
+                Space complexity measures the total amount of extra memory an algorithm uses relative to the input size.
+                In modern systems, we often trade space for time (e.g., using a HashMap to speed up lookups).
+            </p>
+            <ul>
+                <li><strong>O(1) Space:</strong> No extra memory is used regardless of input size (e.g., simple counters
+                    or pointers).</li>
+                <li><strong>O(n) Space:</strong> Extra memory grows linearly with the input (e.g., creating a copy of an
+                    array or storing elements in a Set).</li>
+                <li><strong>Recursion:</strong> Each recursive call adds a frame to the call stack. A recursive function
+                    with depth <i>d</i> has at least O(d) space complexity.</li>
+            </ul>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>Common Problem-Solving Patterns</h2>
+            <p>
+                To optimize complexity, we rely on established patterns that have known performance characteristics.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                    <h4>Two Pointers</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Works on sorted data. Reduces O(n²) search to O(n)
+                        by moving markers from both ends or at different speeds.</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                    <h4>Sliding Window</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Optimizes subarray/substring problems. Avoids
+                        recomputation by "sliding" a range over the data in O(n) time.</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                    <h4>Frequency Counting</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Uses a Hash Map to store occurrences. Great for
+                        reducing repeated scans and identifying patterns in O(n) time.</p>
+                </div>
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                    <h4>Binary Search</h4>
+                    <p style="font-size: 0.95rem; margin-bottom: 0;">Requires sorted input. Dramatically cuts the search
+                        space in half each time, achieving O(log n).</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Conclusion</h3>
+            <p>
+                The goal of performance analysis is not to guess but to design with intention. By understanding the
+                complexity of your operations, you can build systems that are not only functional but truly scalable.
+                Master the patterns, analyze the bottlenecks, and design for the future.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <div style="margin-bottom: 1rem;">
+                &copy; 2025 Ian Mongare. Built with intention.
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Dancan254"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/ian-dancan"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/your_javaguy"><img src="../assets/images/x_logo.png" alt="X"
+                        style="width: 16px; height: 16px;"></a>
+                <a href="https://instagram.com/mongzs_"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:dancanian25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>

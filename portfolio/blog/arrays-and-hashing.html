@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays & Hashing: The Bedrock of DSA | Ian Mongare</title>
+    <meta name="description"
+        content="Exploring the fundamental data structures of technical interviews: Arrays and Hashing. Understanding performance, mechanics, and optimization patterns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <header class="flex justify-between items-center">
+            <div class="logo">
+                <a href="../index.html" style="font-weight: 600; font-size: 1.1rem;">Ian Mongare</a>
+            </div>
+            <nav class="nav-links">
+                <a href="../index.html" class="nav-link">Home</a>
+                <a href="../blog.html" class="nav-link">Writing</a>
+                <a href="../events.html" class="nav-link">Community</a>
+                <a href="../contact.html" class="nav-link">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Post Content -->
+        <article class="post-header">
+            <span class="meta">DSA Foundations: Module 2.1</span>
+            <h1>Arrays & Hashing: The Bedrock of DSA</h1>
+            <p class="item-desc" style="font-size: 1.1rem; margin-top: 1rem; color: var(--text-muted);">
+                If Data Structures & Algorithms were a building, arrays and hashing would be the foundation slab.
+                Everything else stands on top of them.
+            </p>
+        </article>
+
+        <section class="post-content">
+            <img src="../assets/articles/arraysandhashing.png" alt="Arrays and Hashing Optimization"
+                style="width: 100%; border-radius: 12px; margin-bottom: 2.5rem; box-shadow: var(--card-shadow);">
+
+            <p>
+                In technical interviews, roughly 30 to 40% of problems can be solved—or significantly optimized—using
+                arrays and hashing. These structures test a core engineering skill: the ability to trade memory for
+                speed. By mastering these two concepts, you learn to transform slow, brute-force solutions (O(n²)) into
+                efficient, linear-time algorithms (O(n)).
+            </p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>The Array: Contiguous Memory and Random Access</h2>
+            <p>
+                An array is the simplest data structure. It stores elements in contiguous memory locations, which allows
+                for <strong>O(1) random access</strong>. If you know the index, you can retrieve the value instantly.
+            </p>
+            <p>
+                However, arrays have limitations. Inserting or deleting elements from the middle requires shifting all
+                subsequent elements, leading to <strong>O(n) time complexity</strong> for these operations.
+                Understanding this tradeoff is crucial when choosing between arrays and other structures like Linked
+                Lists.
+            </p>
+
+            <h2>The Power of Hashing</h2>
+            <p>
+                Hashing is an optimization mindset. It involves using a <i>Hash Function</i> to map data of arbitrary
+                size to a fixed-size value (a hash). This hash then acts as an index in an underlying array, allowing
+                for near-instant retrieval.
+            </p>
+
+            <h3>Key Hash-Based Structures</h3>
+            <ul>
+                <li><strong>HashSet:</strong> Used when the only concern is existence. It stores unique elements and
+                    answers the question: <i>"Have I seen this before?"</i> in O(1) average time.</li>
+                <li><strong>HashMap:</strong> Used when you need to maintain relationships. It stores Key-Value pairs
+                    (e.g., mapping a value to its frequency or an element to its index).</li>
+            </ul>
+
+            <div
+                style="background: #f8f9fa; padding: 1.5rem; border-radius: 8px; margin: 2rem 0; border-left: 4px solid var(--accent-color);">
+                <h4 style="margin-top: 0;">Collision Resolution</h4>
+                <p style="font-size: 0.95rem; margin-bottom: 0;">
+                    When two different keys produce the same hash, a <i>collision</i> occurs. Professional-grade
+                    implementations handle this via <b>Chaining</b> (using linked lists at each index) or <b>Open
+                        Addressing</b> (searching for the next available slot). In interviews, we generally assume a
+                    good hash function that maintains O(1) average time for operations.
+                </p>
+            </div>
+
+            <h2>Strategic Patterns to Master</h2>
+            <p>
+                Beyond simple lookups, hashing enables several powerful problem-solving patterns:
+            </p>
+
+            <h3>1. Complement Lookup</h3>
+            <p>
+                In problems like "Two Sum," instead of Checking every pair (O(n²)), we iterate through the array once.
+                For each element, we calculate its <i>complement</i> (target - current) and check if that complement
+                exists in our HashMap. This reduces the complexity to O(n).
+            </p>
+
+            <h3>2. Frequency Counting</h3>
+            <p>
+                By storing elements as keys and their counts as values, we can solve problems related to anagrams,
+                duplicates, and top-k frequent elements in linear time.
+            </p>
+
+            <h3>3. Grouping by Key</h3>
+            <p>
+                Hashing allows us to categorize data efficiently. For example, to group anagrams, we can use a sorted
+                version of the string or a character frequency count as the hash key, mapping it to a list of original
+                strings.
+            </p>
+
+            <hr style="margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color);">
+
+            <h2>The Golden Rule</h2>
+            <p>
+                Every engineer eventually learns a simple heuristic: <strong>When things get hard, throw a HashMap at
+                    it.</strong> If your solution involves repeated searching or nested scans, there is a high
+                probability that a hash-based structure can optimize it to constant time lookups.
+            </p>
+            <p>
+                Hashing is more than a data structure; it is a way of thinking about data relationships. Once you master
+                the "lookup mindset," technical interviews stop feeling like riddles and start feeling like predictable
+                patterns.
+            </p>
+        </section>
+
+        <!-- Footer -->
+        <footer style="margin-top: 5rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+            <div style="margin-bottom: 1rem;">
+                &copy; 2025 Ian Mongare. Built with intention.
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Dancan254"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/ian-dancan"><i class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/your_javaguy"><img src="../assets/images/x_logo.png" alt="X"
+                        style="width: 16px; height: 16px;"></a>
+                <a href="https://instagram.com/mongzs_"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:dancanian25@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
